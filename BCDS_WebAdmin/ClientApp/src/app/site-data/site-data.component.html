@@ -1,0 +1,34 @@
+<h1>Site Data</h1>
+
+<p>Choose site to view/edit data.</p>
+
+<p *ngIf="!contracts"><em>Loading...</em></p>
+
+<mat-form-field *ngIf="contracts">
+  <mat-select placeholder="Choose site..." (selectionChange)="selectSite($event.value)">
+    <mat-option *ngFor="let contract of contracts" [value]="contract.contractId">
+      {{contract.contractNo}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<p *ngIf="selectedContract">
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{selectedContract.contractNo}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{selectedContract.contractCode}} - {{selectedContract.description}}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <mat-table [dataSource]="selectedContract.componentItems" class="mat-elevation-z8">
+        <ng-container matColumnDef="tagId">
+          <mat-header-cell *matHeaderCellDef>Tag Id</mat-header-cell>
+          <mat-cell *matCellDef="let componentItem">{{componentItem.tagId}}</mat-cell>
+        </ng-container>
+      </mat-table>
+    </mat-card-content>
+  </mat-card-header>
+</mat-card>
+</p>
