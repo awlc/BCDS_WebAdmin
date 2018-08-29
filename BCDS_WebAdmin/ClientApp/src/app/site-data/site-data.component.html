@@ -21,14 +21,60 @@
     <mat-card-subtitle>
       {{selectedContract.contractCode}} - {{selectedContract.description}}
     </mat-card-subtitle>
-    <mat-card-content>
-      <mat-table [dataSource]="selectedContract.componentItems" class="mat-elevation-z8">
-        <ng-container matColumnDef="tagId">
-          <mat-header-cell *matHeaderCellDef>Tag Id</mat-header-cell>
-          <mat-cell *matCellDef="let componentItem">{{componentItem.tagId}}</mat-cell>
-        </ng-container>
-      </mat-table>
-    </mat-card-content>
   </mat-card-header>
+  <mat-card-content>
+    <mat-table [dataSource]="selectedContract.componentItems" class="mat-elevation-z8">
+      <ng-container matColumnDef="tagId">
+        <mat-header-cell *matHeaderCellDef>Tag Id</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.tagId}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="serialNo">
+        <mat-header-cell *matHeaderCellDef>Serial No</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.serialNo}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="wing">
+        <mat-header-cell *matHeaderCellDef>Wing</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.wing}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="block">
+        <mat-header-cell *matHeaderCellDef>Block</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.block}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="floor">
+        <mat-header-cell *matHeaderCellDef>Floor</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.floor}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="flat">
+        <mat-header-cell *matHeaderCellDef>Flat</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.flat}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="taggingTimestamp">
+        <mat-header-cell *matHeaderCellDef>Tagging TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.taggingTimestamp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="inspectionTimestamp">
+        <mat-header-cell *matHeaderCellDef>Inspection TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.inspectionTimestamp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="manufacturingTimestamp">
+        <mat-header-cell *matHeaderCellDef>Manufacturing TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.manufacturingTimestamp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="deliveryTimestamp">
+        <mat-header-cell *matHeaderCellDef>Delivery TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.deliveryTimestamp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="receivingTimestamp">
+        <mat-header-cell *matHeaderCellDef>Receiving TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.receivingTimestamp}}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="installationTimestamp">
+        <mat-header-cell *matHeaderCellDef>Installation TS</mat-header-cell>
+        <mat-cell *matCellDef="let componentItem">{{componentItem.installationTimestamp}}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="['tagId', 'serialNo', 'wing', 'block', 'floor', 'flat', 'taggingTimestamp', 'inspectionTimestamp', 'manufacturingTimestamp', 'deliveryTimestamp', 'receivingTimestamp', 'installationTimestamp']"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: ['tagId', 'serialNo', 'wing', 'block', 'floor', 'flat', 'taggingTimestamp', 'inspectionTimestamp', 'manufacturingTimestamp', 'deliveryTimestamp', 'receivingTimestamp', 'installationTimestamp'];"></mat-row>
+    </mat-table>
+  </mat-card-content>
 </mat-card>
 </p>
